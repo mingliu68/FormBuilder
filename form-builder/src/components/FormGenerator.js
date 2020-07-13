@@ -10,15 +10,8 @@ const FormGenerator = () => {
     const [title, setTitle] = useState("Title")
     const [subtitle, setSubtitle] = useState("Subtitle")
 
-
-
     return (
         <Container>  
-            {/* <button 
-                onClick = {() => setElements(elements.concat({"type": "text", "label": "This is a Test Field"}))} 
-            >
-                Add Text Field
-            </button> */}
             <FieldMaker 
                 setElements={setElements} 
                 elements={elements} 
@@ -27,7 +20,11 @@ const FormGenerator = () => {
                 subtitle={subtitle} 
                 setSubtitle={setSubtitle}
             />
-            <Display elements={elements} />
+            <Display 
+                elements={elements} 
+                title={title} 
+                subtitle={subtitle}
+            />
         </Container>
     );
 }
@@ -36,7 +33,6 @@ export default FormGenerator;
 
 const Container = styled.div`
     display: flex;
-    max-width: 1020px;
     height: 100vh;
 `;
 

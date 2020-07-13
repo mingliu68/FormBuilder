@@ -4,11 +4,17 @@ import styled from "styled-components"
 const Display = props => {
     return (
         <Container>
+            <FormTitle>
+                <h2>{props.title}</h2>
+                <h4>{props.subtitle}</h4>
+            </FormTitle>
             <Form>
                 {
                     props.elements.map((element, i) => (
                         <FormItem>
-                            <Label for={"input_" + i} >
+                            <Label 
+                                for={"input_" + i} 
+                            >
                                 {element.label}
                             </Label>
                             <Input
@@ -38,6 +44,7 @@ const Form = styled.form`
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     padding:20px 30px;
     flex-wrap: wrap;
+    min-width: 500px;
     
 `;
 
@@ -47,7 +54,6 @@ const FormItem = styled.div`
     border-radius: 14px;
     display: flex;
     flex-direction: column;
-    min-width: 500px;
 `;
 
 const Input = styled.input`
@@ -64,13 +70,20 @@ const Label = styled.label`
 `;
 
 const Container = styled.div`
-    width: 70%;
+    width: 100%;
     padding: 20px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-tart;
     align-items: flex-start;
-    background: #eee;
+    background: #cccccc;
     overflow-y: scroll;
+    flex-direction: column;
+`;
 
+const FormTitle = styled.div`
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 `;
