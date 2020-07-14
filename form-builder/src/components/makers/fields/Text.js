@@ -11,14 +11,24 @@ const Text = props => {
         )
     } 
 
+    const updateElements = (e, index) => {
+        let newFields = JSON.parse(JSON.stringify(props.elements));
+        newFields[index].label = e.target.value
+        props.setElements(newFields)
+    }
+
     return(
         <Container>
             <FieldItem>
-                    <ItemLabel>
-                        {props.field.label}
-                    </ItemLabel>
+                    <ItemLabel 
+                        name={props.field.name} 
+                        id={props.field.name} 
+                        placeholder={props.field.label} 
+                        value={props.field.label}
+                        onChange={ e => updateElements(e, props.index)}
+                    />
                     <ItemType>
-                        {props.field.type}
+                        {(props.field.type).toUpperCase()}
                     </ItemType>
                     <Delete onClick = {() => deleteField(props.field)}>
                         X
@@ -62,10 +72,15 @@ const ItemType = styled.div`
     background: #ffffff;
     width: 30%;
     padding: 5px;
+    font-size: 13px;
 `;
 
-const ItemLabel = styled.div`
+const ItemLabel = styled.input`
     width: 60%;
     background: #ffffff;
     padding: 5px;
+    outline: none;
+    border: none;
+    margin-right: 5px;
+    font-size: 14px;
 `;

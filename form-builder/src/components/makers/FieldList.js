@@ -8,7 +8,7 @@ import Text from './fields/Text';
 
 const FieldList = props => {
 
-    const getField = (field, fieldType) => {
+    const getField = (field, fieldType, index) => {
         switch(fieldType) {
             case "text":
                 return (
@@ -16,6 +16,7 @@ const FieldList = props => {
                         field={field} 
                         setElements={props.setElements} 
                         elements={props.elements}
+                        index={index}
                     />
                 )
             case "select":
@@ -24,6 +25,7 @@ const FieldList = props => {
                         field={field} 
                         setElements={props.setElements} 
                         elements={props.elements}
+                        index={index}
                     />
                 )
             case "textarea":
@@ -32,6 +34,7 @@ const FieldList = props => {
                         field={field} 
                         setElements={props.setElements} 
                         elements={props.elements}
+                        index={index}
                     />
                 )
             case "checkbox":
@@ -40,6 +43,7 @@ const FieldList = props => {
                         field={field} 
                         setElements={props.setElements} 
                         elements={props.elements}
+                        index={index}
                     />
                 )
             case "radio":
@@ -48,6 +52,7 @@ const FieldList = props => {
                         field={field} 
                         setElements={props.setElements} 
                         elements={props.elements}
+                        index={index}
                      />
                 )
             default:
@@ -59,7 +64,7 @@ const FieldList = props => {
         <Container>
             {
                 props.elements.map((element, i) => (
-                    getField(element, element.type)
+                    getField(element, element.type, i)
                 ))
             }
         </Container>
