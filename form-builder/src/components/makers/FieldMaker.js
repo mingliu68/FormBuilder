@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Field from "./Field";
+// import Field from "./Field";
 import FieldList from "./FieldList";
 
 
 const FieldMaker = props => {
 
-    const addField = () => {
+    const addField = fieldType => {
         props.setElements(props.elements.concat(
             {
                 "id" : props.counter, 
-                "type": "text", 
-                "label": "This is a Test Field", 
+                "type": fieldType, 
+                "label": `This is a Test Field_${fieldType}`, 
                 "name":`test_field_${props.counter}`
             }
         ))
@@ -24,9 +24,13 @@ const FieldMaker = props => {
                 elements={props.elements} 
                 setElements={props.setElements}
             />
-            <button onClick = {addField} >
+            <button onClick = {() => addField("text")} >
                 Add Text Field
             </button>
+            <button onClick = {() => addField("select")} >
+                Add Select Field
+            </button>
+            
         </Container>
     )
 }
