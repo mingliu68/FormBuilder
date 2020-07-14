@@ -13,14 +13,14 @@ const Display = props => {
                     props.elements.map((element, i) => (
                         <FormItem>
                             <Label 
-                                for={"input_" + i} 
+                                for={element.name} 
                             >
                                 {element.label}
                             </Label>
                             <Input
                                 type={element.type} 
-                                id={"input" + i} 
-                                name={"input" + i}
+                                id={element.name} 
+                                name={element.name}
                             />
                         </FormItem>
                     ))
@@ -39,7 +39,7 @@ const Form = styled.form`
     justify-content: center;
     align-items: center;
     border-radius: 14px;
-    border: 1px solid #999;
+    border: 1px solid #ccc;
     background: #eee;
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     padding:20px 30px;
@@ -76,8 +76,8 @@ const Container = styled.div`
     display: flex;
     justify-content: flex-tart;
     align-items: flex-start;
-    background: #cccccc;
-    overflow-y: scroll;
+    background: #999999;
+    overflow-y: auto;
     flex-direction: column;
 `;
 
