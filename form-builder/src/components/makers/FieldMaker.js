@@ -7,21 +7,24 @@ import FieldList from "./FieldList";
 const FieldMaker = props => {
 
     const addField = () => {
-        props.setElements(props.elements.concat({
-            "id" : props.counter, 
-            "type": "text", 
-            "label": "This is a Test Field", 
-            "name":`test_field_${props.counter}`
-        }))
+        props.setElements(props.elements.concat(
+            {
+                "id" : props.counter, 
+                "type": "text", 
+                "label": "This is a Test Field", 
+                "name":`test_field_${props.counter}`
+            }
+        ))
         props.setCounter(props.counter + 1)
     }
 
     return (
         <Container>
-            <FieldList elements={props.elements} setElements={props.setElements}/>
-            <button 
-                onClick = {addField} 
-            >
+            <FieldList 
+                elements={props.elements} 
+                setElements={props.setElements}
+            />
+            <button onClick = {addField} >
                 Add Text Field
             </button>
         </Container>

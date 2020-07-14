@@ -2,6 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const FieldList = props => {
+
+    const deleteField = ( element ) => {
+        props.setElements(
+            props.elements.filter( parentElement => (
+                    parentElement != element
+                )
+            )
+        )
+    }
+
     return (
         <Container>
             {
@@ -13,7 +23,9 @@ const FieldList = props => {
                         <ItemType>
                             {element.type}
                         </ItemType>
-                        <Delete onClick = {() => props.setElements(props.elements.filter(parentElement => parentElement != element))}>X</Delete>
+                        <Delete onClick = {() => deleteField(element)}>
+                            X
+                        </Delete>
                     </FieldItem>
                 ))
             }
